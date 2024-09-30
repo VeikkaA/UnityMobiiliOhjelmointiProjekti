@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: New Text Color Gradient
+  m_EditorClassIdentifier: 
+  colorMode: 3
+  topLeft: {r: 0.8773585, g: 0.47592562, b: 0.47592562, a: 1}
+  topRight: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 1}
+  bottomLeft: {r: 0.6415094, g: 0.45692417, b: 0.45692417, a: 1}
+  bottomRight: {r: 0.4716981, g: 0.09567462, b: 0.09567462, a: 1}
