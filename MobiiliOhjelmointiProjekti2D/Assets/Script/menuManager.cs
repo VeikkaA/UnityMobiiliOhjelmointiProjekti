@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -10,6 +11,8 @@ public class menuManager : MonoBehaviour
     public Button openButton;
     public Button closeButton;
     public Button exitButton;
+
+    private bool canNavigate = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +48,21 @@ public class menuManager : MonoBehaviour
         Debug.Log("Ohjelma suljettu");
 
         Application.Quit(); 
+    }
+
+    public void NavigateToSceneTwo()
+    {
+        if (canNavigate)
+        {
+            Debug.Log("Navigoidaan uuteen skeneen");
+            canNavigate = false;
+            SceneManager.LoadScene("toinenSivu", LoadSceneMode.Single);
+        }
+    }
+    public void NavigateToMainScene()
+    {
+        Debug.Log("Navigoidaan p‰‰skeneen");
+        canNavigate = false;
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }
