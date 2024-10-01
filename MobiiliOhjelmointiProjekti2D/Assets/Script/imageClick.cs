@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class imageClick : MonoBehaviour
 {
-    public GameObject backgroundPanel;
-    public Image placeholderImage;
-    public Button closeButton;
+    [SerializeField] GameObject backgroundPanel;
+    [SerializeField] Image placeholderImage;
+    [SerializeField] Button closeButton;
     // Start is called before the first frame update
     void Start()
     {
