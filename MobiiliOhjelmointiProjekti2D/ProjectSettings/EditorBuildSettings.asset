@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/toinenSivu.unity
     guid: dd27ca632a70dad4a98f1c63acc2a3ee
+  - enabled: 1
+    path: Assets/Scenes/quizScene.unity
+    guid: 83169805fd3174748952f4b9bb3205d9
   m_configObjects: {}

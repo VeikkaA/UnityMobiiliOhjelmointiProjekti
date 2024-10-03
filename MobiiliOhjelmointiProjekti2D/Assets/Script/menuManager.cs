@@ -26,7 +26,7 @@ public class menuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OpenImage()
     {
@@ -47,7 +47,7 @@ public class menuManager : MonoBehaviour
     {
         Debug.Log("Ohjelma suljettu");
 
-        Application.Quit(); 
+        Application.Quit();
     }
 
     public void NavigateToSceneTwo()
@@ -65,4 +65,17 @@ public class menuManager : MonoBehaviour
         canNavigate = false;
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
+
+    public void NavigateToSceneQuiz()
+    {
+        if (canNavigate)
+        {
+            Debug.Log("Navigoidaan uuteen skeneen");
+            canNavigate = false;
+            SceneManager.LoadScene("quizScene", LoadSceneMode.Single);
+        }
+
+    }
 }
+
+
