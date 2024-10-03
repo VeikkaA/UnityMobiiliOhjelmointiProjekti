@@ -12,6 +12,9 @@ public class quizManager : MonoBehaviour
     public TMP_Text lastAnswerText;
     private saveManager saveManager;
     private string correctAnswer;
+
+    public TMP_Text summaryText;
+   /* public List <Question> questions;*/
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,18 @@ public class quizManager : MonoBehaviour
 
         string lastAnswer = PlayerPrefs.GetString("LastUserAnswer", "Ei vastattu vielä");
         lastAnswerText.text = "Viimeksi vastattu: " + lastAnswer;
+
+/*        if(questions.Count == 0)
+        {
+            questions.Add(new question){
+                questionText = "",
+                answerOptions = new string[](""),
+                correctAnswer = ""
+                   
+            }
+        }
+
+        DisplayCurrentQuestion();*/
     }
 
     // Update is called once per frame
@@ -43,6 +58,27 @@ public class quizManager : MonoBehaviour
     {
         
     }
+   /* private void DisplayCurrentQuestion()
+    {
+        if(currentQuestionIndex <= questionText.Count)
+        {
+            questionText = questions[currentQuestionIndex].questionText;
+            string[] answers = questions[currentQuestionIndex].questionText;
+
+            for (int i = 0;i < answerButton.Length;i++)
+            {
+                TMP_Text buttonText = answerButton[i].GetComponentInChildren <TMP_Text>();
+                buttonText.text = answers[i];
+
+                answerButton[i].onClick.RemoveAllListeners();
+
+                int index = i;
+
+                answerButton[i].onClick.AddListener(() => { })
+            }
+        }*/
+
+    /*}*/
 
     public void SetAnswer(string answer)
     {
