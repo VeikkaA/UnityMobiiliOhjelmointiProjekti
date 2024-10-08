@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class menuManager : MonoBehaviour
     }
     void OpenImage()
     {
+        Console.WriteLine("haloo");
         if (!menuImage.activeSelf)
         {
             menuImage.SetActive(true);
