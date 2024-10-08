@@ -5,6 +5,8 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject collectable;
+
     public float spawnInterval = 10f;
     public float minX = -2f;
     public float maxX = 2f;
@@ -33,9 +35,12 @@ public class enemySpawner : MonoBehaviour
 
             Vector2 spawnPosition = new Vector2(randomX, spawnY);
 
-            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            GameObject objectToSpawn = Random.value > 0.5f ? enemyPrefab : collectable;
 
-            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -fallSpeed);
+            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+
+            spawnedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -fallSpeed);
+
 
             yield return new WaitForSeconds(spawnInterval);
         }
