@@ -11,17 +11,23 @@ public class healthManager : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject pauseMenu;
 
+    public scoringSystem scoringsystem;
+
     private int currentHealth;
     private SpriteRenderer playerSpriteRenderer;
 
     [SerializeField] Button exitButton;
-    [SerializeField] Button newGamebutton;
+    [SerializeField] Button[] newGamebutton;
     [SerializeField] Button openPauseMenu;
     [SerializeField] Button continuegameButton;
+    [SerializeField] Button navToMainMenu;
+
+    private bool canNavigate = true;
 
     // Start is called before the first frame update
     void Start()
     {
+
         currentHealth = healthImages.Length;
 
         gameOverMenu.SetActive(false);
@@ -32,9 +38,18 @@ public class healthManager : MonoBehaviour
 
         exitButton.onClick.AddListener(CloseApplication);
 
-        newGamebutton.onClick.AddListener(newGame);
+        foreach (Button button in newGamebutton){
+            button.onClick.AddListener(newGame);
+        }
+        
 
         openPauseMenu.onClick.AddListener(OpenPauseMenu);
+
+        continuegameButton.onClick.AddListener(MenuContinuegame);
+
+        navToMainMenu.onClick.AddListener(NavigateToSampleScene);
+
+
 
 
     }
@@ -116,11 +131,15 @@ public class healthManager : MonoBehaviour
         }
     }
 
-    public void newGame()
+    void newGame()
     {
-        SceneManager.LoadScene("gameScene", LoadSceneMode.Single);
-        ShowPlayer();
         Time.timeScale = 1f;
+        Debug.Log("Mitä vittua");
+
+        SceneManager.LoadScene("gameScene", LoadSceneMode.Single);
+        scoringSystem.theScore = 0;
+        ShowPlayer();
+
         /*Time.timeScale = 1f;
         currentHealth = healthImages.Length;
         UpdateLivesCounter();
@@ -151,6 +170,17 @@ public class healthManager : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         ShowPlayer();
+    }
+
+    public void NavigateToSampleScene()
+    {
+        if (canNavigate)
+        {
+            Time.timeScale = 1f;
+            Debug.Log("Navigoidaan uuteen skeneen");
+            canNavigate = false;
+            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        }
     }
 
 

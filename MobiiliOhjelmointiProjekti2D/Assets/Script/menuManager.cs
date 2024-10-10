@@ -29,7 +29,7 @@ public class menuManager : MonoBehaviour
     {
 
     }
-    void OpenImage()
+    public void OpenImage()
     {
         Console.WriteLine("haloo");
         if (!menuImage.activeSelf)
@@ -77,6 +77,15 @@ public class menuManager : MonoBehaviour
             SceneManager.LoadScene("quizScene", LoadSceneMode.Single);
         }
 
+    }
+    public void NavigateToGameScene()
+    {
+        if (canNavigate)
+        {
+            Debug.Log("Navigoidaan uuteen skeneen");
+            canNavigate = false;
+            SceneManager.LoadScene("gameScene", LoadSceneMode.Single);
+        }
     }
 }
 
